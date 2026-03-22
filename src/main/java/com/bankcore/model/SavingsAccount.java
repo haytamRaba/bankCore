@@ -1,5 +1,8 @@
 package com.bankcore.model;
 
+import com.bankcore.interfaces.Interestable;
+import com.bankcore.interfaces.Taxable;
+
 /**
  * Represents a savings account with interest rate.
  * Extends Account with interest calculation capability.
@@ -7,7 +10,7 @@ package com.bankcore.model;
  * @author Haytam
  * @version 1.0
  */
-public class SavingsAccount extends Account {
+public class SavingsAccount extends Account implements Interestable, Taxable {
 
     private double interestRate;
 
@@ -46,10 +49,21 @@ public class SavingsAccount extends Account {
     }
     @Override
     public String toString() {
-        return "CheckingAccount : id= " + getAccountId() +
+        return "SavingAccount : id= " + getAccountId() +
                 ", owner=" + getOwnerName() +
                 ", created at= "+ getCreatedAt() +
                 ", balance=" + getBalance() +
                 ", interestRate=" + interestRate + " ";
     }
+
+    /**
+     * apply tax in the current balance
+     * @param taxRate tax from external
+     */
+    @Override
+    public void applyTax(double taxRate) {
+        if (taxRate <= 0 || taxRate >= 1) throw new IllegalArgumentException("Tax rate must be between 0 and 1");
+        updateBalance(-(getBalance()*taxRate));
+    }
+
 }
