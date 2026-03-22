@@ -1,4 +1,7 @@
 package com.bankcore.model;
+
+import java.time.LocalDate;
+
 /**
  * Represents a bank account.
  * Base class for all account types in BankCore system.
@@ -12,6 +15,7 @@ package com.bankcore.model;
     private String accountId;
     private String ownerName;
     private double balance;
+    private LocalDate createdAt;
 
 
     private static int cpt=0;
@@ -21,7 +25,7 @@ package com.bankcore.model;
          this.accountId="A-"+cpt;
          this.ownerName=ownerName;
          this.balance=initBalance;
-
+         this.createdAt=LocalDate.now();
      }
 
      public String getAccountId() {
@@ -32,6 +36,7 @@ package com.bankcore.model;
          return ownerName;
      }
 
+     public LocalDate getCreatedAt(){ return createdAt;}
      public void setOwnerName(String ownerName) {
          this.ownerName = ownerName;
      }

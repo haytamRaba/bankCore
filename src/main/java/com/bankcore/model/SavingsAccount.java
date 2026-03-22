@@ -48,6 +48,7 @@ public class SavingsAccount extends Account {
     public String toString() {
         return "CheckingAccount : id= " + getAccountId() +
                 ", owner=" + getOwnerName() +
+                ", created at= "+ getCreatedAt() +
                 ", balance=" + getBalance() +
                 ", interestRate=" + interestRate + " ";
     }
