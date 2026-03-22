@@ -13,6 +13,7 @@ package com.bankcore.model;
     private String ownerName;
     private double balance;
 
+
     private static int cpt=0;
 
      public Account(String ownerName, double initBalance) {
@@ -20,6 +21,7 @@ package com.bankcore.model;
          this.accountId="A-"+cpt;
          this.ownerName=ownerName;
          this.balance=initBalance;
+
      }
 
      public String getAccountId() {
