@@ -1,5 +1,7 @@
 package com.bankcore.model;
 
+import com.bankcore.exceptions.InsufficientFundsException;
+
 /**
  * Represents a checking account with overdraft and transaction fees.
  * Extends Account with overdraft capability.
@@ -40,14 +42,14 @@ public class CheckingAccount extends Account {
      *
      * @param amount must be positive
      * @throws IllegalArgumentException if amount is zero or negative
-     * @throws RuntimeException if total cost (amount + fees) exceeds balance and overdraft limit
+     * @throws InsufficientFundsException if total cost (amount + fees) exceeds balance and overdraft limit
      */
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
         if (amount<=0) throw new IllegalArgumentException("must be positive");
         double amountWithFees = amount+transactionFee;
-        if (amountWithFees  > getBalance()+ overdraftLimit) throw new RuntimeException("amount exceeds balance and overdraft limit ");
+        if (amountWithFees  > getBalance()+ overdraftLimit) throw new InsufficientFundsException(amount,getBalance());
         updateBalance(-amountWithFees);
 
     }
@@ -57,6 +59,7 @@ public class CheckingAccount extends Account {
         return "CheckingAccount : id= " + getAccountId() +
                 ", owner=" + getOwnerName() +
                 ", balance=" + getBalance() +
+                ", created at="+getCreatedAt()+
                 ", overdraftLimit=" + overdraftLimit + " ";
     }
 }

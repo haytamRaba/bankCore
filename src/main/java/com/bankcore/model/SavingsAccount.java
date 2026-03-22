@@ -1,5 +1,6 @@
 package com.bankcore.model;
 
+import com.bankcore.exceptions.InsufficientFundsException;
 import com.bankcore.interfaces.Interestable;
 import com.bankcore.interfaces.Taxable;
 
@@ -40,10 +41,10 @@ public class SavingsAccount extends Account implements Interestable, Taxable {
      */
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
 
         if (amount <= 0) throw new IllegalArgumentException("Amount must be positive");
-        if (amount > getBalance()) throw new RuntimeException("Insufficient funds");
+        if (amount > getBalance()) throw new InsufficientFundsException(amount,getBalance());
         updateBalance(-amount);
 
     }

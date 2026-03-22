@@ -1,12 +1,13 @@
 package com.bankcore;
 
+import com.bankcore.exceptions.InsufficientFundsException;
 import com.bankcore.model.CheckingAccount;
 import com.bankcore.model.SavingsAccount;
 import com.bankcore.model.Transaction;
 import com.bankcore.model.TransactionType;
 
 public class BankCoreApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InsufficientFundsException {
 
         // test SavingsAccount
         SavingsAccount savings = new SavingsAccount("Haytam", 1000, 0.03);

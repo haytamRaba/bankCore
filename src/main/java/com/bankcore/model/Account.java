@@ -1,5 +1,7 @@
 package com.bankcore.model;
 
+import com.bankcore.exceptions.InsufficientFundsException;
+
 import java.time.LocalDate;
 
 /**
@@ -52,7 +54,7 @@ import java.time.LocalDate;
      *
      * @param amount the amount to withdraw
      */
-     public abstract void withdraw(double amount);
+     public abstract void withdraw(double amount)throws InsufficientFundsException;
 
      /**
      * Deposits amount into the account.
