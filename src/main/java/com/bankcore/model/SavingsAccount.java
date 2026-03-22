@@ -44,4 +44,11 @@ public class SavingsAccount extends Account {
         updateBalance(-amount);
 
     }
+    @Override
+    public String toString() {
+        return "CheckingAccount : id= " + getAccountId() +
+                ", owner=" + getOwnerName() +
+                ", balance=" + getBalance() +
+                ", interestRate=" + interestRate + " ";
+    }
 }
