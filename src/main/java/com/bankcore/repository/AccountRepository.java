@@ -22,7 +22,7 @@ public class AccountRepository{
         this.transactionHistory = new HashMap<>();
     }
     /**
-     * add acount in accounts and initialize an empty arraly list for transactionH history.
+     * add acount in accounts and initialize an empty array list for transactionH history.
      * @param account the account that will be added
      */
     public void save(Account account){
