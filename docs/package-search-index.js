@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.bankcore"},{"l":"com.bankcore.exceptions"},{"l":"com.bankcore.interfaces"},{"l":"com.bankcore.model"},{"l":"com.bankcore.repository"},{"l":"com.bankcore.service"},{"l":"com.bankcore.utils"}];updateSearchResults();

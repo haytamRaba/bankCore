@@ -1,0 +1,7 @@
+com.bankcore
+com.bankcore.exceptions
+com.bankcore.interfaces
+com.bankcore.model
+com.bankcore.repository
+com.bankcore.service
+com.bankcore.utils
